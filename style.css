@@ -1,167 +1,70 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Colores corporativos */
+/* Variables de color */
 :root {
-    --color-primario: #333333;
-    --color-secundario: #D4AF37;
-    --color-fondo: #ffffff;
+    --color-primario: #D4AF37; /* dorado */
+    --color-secundario: #ffffff; /* blanco */
+    --color-fondo: #000000; /* negro */
     --color-boton: #D4AF37;
-    --color-boton-texto: #ffffff;
+    --color-boton-texto: #000000;
 }
 
-/* Body */
-body {
-    background-color: var(--color-fondo);
-    color: var(--color-primario);
-}
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+body { background-color: var(--color-fondo); color: var(--color-primario); }
 
 /* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: var(--color-fondo);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 50px; background-color: #000;
+    position: sticky; top:0; z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.3);
 }
+header .logo img { width:150px; }
+header nav ul { list-style:none; display:flex; gap:30px; }
+header nav a { text-decoration:none; color: var(--color-primario); font-weight:bold; transition:color 0.3s; }
+header nav a:hover { color:#ffffff; }
 
-header .logo img {
-    width: 150px;
+/* WhatsApp flotante */
+.whatsapp-btn {
+    position: fixed; bottom:30px; right:30px;
+    background-color:#25D366; padding:15px; border-radius:50%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000; transition:transform 0.3s;
 }
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-header nav a {
-    text-decoration: none;
-    color: var(--color-primario);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: var(--color-secundario);
-}
+.whatsapp-btn img { width:30px; height:30px; }
+.whatsapp-btn:hover { transform: scale(1.1); }
 
 /* Secciones */
-.section {
-    padding: 80px 50px;
-    text-align: center;
+.section { padding:80px 50px; text-align:center; }
+.hero { 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero.jpg') center/cover no-repeat;
+    color:white;
+    display:flex; justify-content:center; align-items:center;
+    height:80vh;
 }
-
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/hero.jpg') center/cover no-repeat;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.btn {
-    text-decoration: none;
-    background-color: var(--color-boton);
-    color: var(--color-boton-texto);
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background-color: #b89028;
-}
+.hero h1 { font-size:48px; margin-bottom:20px; text-shadow:0 0 15px #D4AF37; }
+.hero p { font-size:20px; margin-bottom:30px; }
+.btn { text-decoration:none; background-color:var(--color-boton); color:var(--color-boton-texto); padding:15px 30px; border-radius:25px; font-weight:bold; transition:background 0.3s, transform 0.3s; }
+.btn:hover { background-color:#b89028; transform:scale(1.05); }
 
 /* Servicios */
-.servicios-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+.servicios-container { display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
+.servicio { background-color:#111; padding:30px; border-radius:15px; width:250px; transition:transform 0.3s, box-shadow 0.3s; }
+.servicio:hover { transform:translateY(-10px); box-shadow:0 10px 20px rgba(212,175,55,0.5); }
+.servicio h3 { text-shadow:0 0 10px #D4AF37; }
 
-.servicio {
-    background-color: #f8f8f8;
-    padding: 30px;
-    border-radius: 15px;
-    width: 250px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.servicio:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Galería */
-.galeria-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.galeria-item img {
-    width: 300px;
-    border-radius: 15px;
-    transition: transform 0.3s;
-}
-
-.galeria-item img:hover {
-    transform: scale(1.05);
-}
+/* Galería - carrusel */
+.galeria-container { display:flex; overflow:hidden; width:90%; margin:0 auto; border-radius:15px; }
+.galeria-slide { min-width:100%; transition:transform 0.5s ease-in-out; }
+.galeria-slide img { width:100%; border-radius:15px; }
 
 /* Contacto */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact-form input, .contact-form textarea {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-.contact-form button {
-    padding: 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: var(--color-boton);
-    color: var(--color-boton-texto);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.contact-form button:hover {
-    background-color: #b89028;
-}
+.contact-form { display:flex; flex-direction:column; gap:20px; max-width:500px; margin:0 auto; }
+.contact-form input, .contact-form textarea { padding:15px; border-radius:10px; border:1px solid #ccc; background:#111; color:var(--color-primario); }
+.contact-form button { padding:15px; border:none; border-radius:25px; background-color:var(--color-boton); color:var(--color-boton-texto); font-weight:bold; cursor:pointer; transition:background 0.3s; }
+.contact-form button:hover { background-color:#b89028; }
 
 /* Footer */
-footer {
-    padding: 20px;
-    background-color: #f1f1f1;
-    text-align: center;
-}
+footer { padding:20px; background-color:#111; text-align:center; }
+
+/* Animación al scroll */
+.hidden { opacity:0; transform:translateY(50px); transition: all 0.6s ease-out; }
+.show { opacity:1; transform:translateY(0); }
