@@ -11,6 +11,29 @@ body {
   background: linear-gradient(180deg, #FDF6F6 0%, #F8E9E8 50%, #F2DFE0 100%);
   color: #6B3F3F;
   overflow-x: hidden;
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* ====== BOTÓN DE CAMBIO DE TEMA ====== */
+#toggle-theme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #6B3F3F;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#toggle-theme:hover {
+  transform: scale(1.1);
+  background: #8b5c5c;
 }
 
 /* ====== ENCABEZADO ====== */
@@ -30,7 +53,6 @@ body {
 .slogan {
   margin-top: 20px;
   font-size: 1.2rem;
-  color: #6B3F3F;
   font-style: italic;
   opacity: 0.9;
 }
@@ -51,7 +73,6 @@ section.visible {
 
 h2 {
   font-size: 2rem;
-  color: #6B3F3F;
   margin-bottom: 20px;
 }
 
@@ -88,17 +109,6 @@ p {
   object-fit: cover;
 }
 
-/* ====== CONTACTO ====== */
-#contacto a {
-  color: #6B3F3F;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#contacto a:hover {
-  text-decoration: underline;
-}
-
 /* ====== PIE DE PÁGINA ====== */
 footer {
   background: #EECFD0;
@@ -107,6 +117,31 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
   margin-top: 50px;
+}
+
+/* ====== TEMA OSCURO ====== */
+body.theme-black {
+  background: radial-gradient(circle at 20% 10%, #151212 0%, #0b0b0b 50%, #060606 100%);
+  color: #f1e8e5;
+}
+
+body.theme-black .hero {
+  background: linear-gradient(135deg, rgba(24,22,22,0.95), rgba(10,10,10,0.8));
+  border-bottom: 2px solid #2d2d2d;
+}
+
+body.theme-black footer {
+  background: #1c1c1c;
+  color: #f1e8e5;
+}
+
+body.theme-black #toggle-theme {
+  background: #f1e8e5;
+  color: #151212;
+}
+
+body.theme-black #toggle-theme:hover {
+  background: #ccc;
 }
 
 /* ====== ANIMACIONES ====== */
@@ -122,15 +157,7 @@ footer {
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  .slogan {
-    font-size: 1rem;
-  }
-
-  .logo svg {
-    width: 240px;
-  }
+  h2 { font-size: 1.6rem; }
+  .slogan { font-size: 1rem; }
+  .logo svg { width: 240px; }
 }
