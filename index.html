@@ -3,149 +3,119 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Glow & Go — Servicios Empresariales</title>
-  <link rel="icon" href="logo.svg" />
+  <title>Glow & Go — Centro de belleza</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="nav-animated" id="top">
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <!-- Inline SVG logo reference -->
-        <img src="logo.svg" alt="Glow & Go logo" class="logo-img" />
-        <span class="brand-text">Glow &amp; Go</span>
-      </a>
+<body class="theme-pink">
+  <header class="site-header">
+    <div class="branding">
+      <!-- SVG logo (brush + text). Colors controlled by CSS -->
+      <svg id="logo" width="220" height="80" viewBox="0 0 520 180" aria-label="Glow and Go logo">
+        <!-- brush -->
+        <g id="brush" transform="translate(10,10)">
+          <path class="brush-handle" d="M70 20 C68 24, 64 80, 66 120 C67 140 76 142 84 140 C92 138 102 136 106 120 C111 100 108 30 106 24 C103 16 92 14 84 18 Z" />
+          <path class="ferrule" d="M50 18 L102 18 L102 40 L50 40 Z" />
+          <path class="bristles" d="M40 40 C60 6, 120 6, 140 40 C135 48, 120 56, 100 56 C80 56, 60 48, 40 40 Z" />
+        </g>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#gallery">Galería</a>
-        <a href="#contact">Contacto</a>
-      </nav>
+        <!-- text -->
+        <g transform="translate(180,18)">
+          <text class="brand-name" x="0" y="48">Glow &amp; Go</text>
+          <text class="tagline" x="0" y="86">Centro de belleza</text>
+        </g>
+      </svg>
+    </div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <div class="header-actions">
+      <button id="themeToggle" aria-pressed="false" title="Cambiar tema">Modo ⏤</button>
+      <a class="cta" id="reserveBtn" href="#contacto">Reserva</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero section">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1>Impulsamos la presencia de tu empresa</h1>
-        <p>Soluciones profesionales en marketing, branding y promoción para empresas que desean destacar con elegancia.</p>
-        <div class="hero-ctas">
-          <a class="btn primary" href="#services">Ver servicios</a>
-          <a class="btn outline" href="#contact">Contáctanos</a>
-        </div>
-        <div class="contact-line">
-          <!-- Replace phone and instagram as needed -->
-          <a href="tel:+573026334176" class="contact-pill">📱 +57 302 633 4176</a>
-          <a href="https://instagram.com/tu_instagram" target="_blank" rel="noopener" class="contact-pill">📸 @tu_instagram</a>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>En Glow &amp; Go cuidamos tu belleza</h1>
+        <p class="lead">Porque te mereces brillar todos los días ✨</p>
+        <div class="hero-buttons">
+          <a class="btn primary" id="whatsapp" href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="btn outline" href="https://www.instagram.com/nicol_.xf" target="_blank" rel="noopener">Ver Instagram</a>
         </div>
       </div>
-      <div class="hero-image" aria-hidden="true">
-        <div class="device-mockup">
-          <div class="screen-glow"></div>
-        </div>
+      <div class="hero-image" role="img" aria-label="Imagen representativa de Glow & Go">
+        <!-- placeholder: reemplaza con <img src="ruta.jpg" alt="..."> -->
+        <div class="photo placeholder">Tu foto aquí</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title">Servicios</h2>
-      <p class="muted">Paquetes diseñados para hacer crecer tu marca con confianza y distinción.</p>
-
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section">
+      <h2>Servicios destacados</h2>
       <div class="cards">
-        <article class="card card-animated">
-          <h3>Branding Corporativo</h3>
-          <p>Identidad visual, manual de marca, y diseño de materiales corporativos.</p>
+        <article class="card">
+          <div class="icon">💆‍♀️</div>
+          <h3>Tratamientos faciales</h3>
+          <p>Limpieza profunda, hidratación y glow profesional.</p>
         </article>
-        <article class="card card-animated">
-          <h3>Marketing Digital</h3>
-          <p>Estrategia en redes, publicidad pagada y campañas de captación.</p>
+        <article class="card">
+          <div class="icon">💄</div>
+          <h3>Maquillaje profesional</h3>
+          <p>Eventos, sesiones fotográficas y looks diarios.</p>
         </article>
-        <article class="card card-animated">
-          <h3>Producción Multimedia</h3>
-          <p>Fotos, videos y material audiovisual profesional para presentar tus productos.</p>
+        <article class="card">
+          <div class="icon">💅</div>
+          <h3>Manicure &amp; Pedicure</h3>
+          <p>Acabados de precisión y esmaltado de larga duración.</p>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="section gallery-section">
-    <div class="container">
-      <h2 class="section-title">Galería</h2>
-      <p class="muted">Proyectos y muestras de trabajo.</p>
-
-      <div class="gallery-grid">
-        <!-- Replace src with real images later -->
-        <img data-caption="Proyecto A — Branding" src="https://picsum.photos/seed/p1/800/600" alt="Proyecto A" class="gallery-item" />
-        <img data-caption="Campaña B — Redes" src="https://picsum.photos/seed/p2/800/600" alt="Campaña B" class="gallery-item" />
-        <img data-caption="Producción C — Foto" src="https://picsum.photos/seed/p3/800/600" alt="Producción C" class="gallery-item" />
-        <img data-caption="Evento D — Publicidad" src="https://picsum.photos/seed/p4/800/600" alt="Evento D" class="gallery-item" />
+    <!-- GALERÍA -->
+    <section id="galeria" class="section">
+      <h2>Galería</h2>
+      <div class="gallery">
+        <!-- Reemplaza cada .gallery-item con <img src="tufoto.jpg" alt="Descripción"> -->
+        <div class="gallery-item"><div class="photo placeholder">Imagen 1</div></div>
+        <div class="gallery-item"><div class="photo placeholder">Imagen 2</div></div>
+        <div class="gallery-item"><div class="photo placeholder">Imagen 3</div></div>
+        <div class="gallery-item"><div class="photo placeholder">Imagen 4</div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- Modal for enlarged gallery image -->
-    <div id="lightbox" class="lightbox" aria-hidden="true">
-      <button class="lightbox-close" id="lbClose" aria-label="Cerrar">✕</button>
-      <img id="lbImage" alt="" />
-      <p id="lbCaption"></p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section contact-section">
-    <div class="container contact-grid">
-      <div>
-        <h2 class="section-title">Contacto</h2>
-        <p class="muted">Hablemos de tu proyecto. Rellena el formulario o escríbenos directamente.</p>
-
+    <!-- CONTACTO -->
+    <section id="contacto" class="section contact">
+      <div class="contact-left">
+        <h2>Contacto &amp; reservas</h2>
+        <p>Agenda tu visita o consulta por paquetes. ¡Te esperamos con mucho cariño!</p>
         <ul class="contact-list">
-          <li>📱 <a href="tel:+573026334176">+57 302 633 4176</a></li>
-          <li>📸 <a href="https://instagram.com/tu_instagram" target="_blank" rel="noopener">@tu_instagram</a></li>
-          <li>✉️ <a href="mailto:info@glowandgo.com">info@glowandgo.com</a></li>
+          <li><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go%2C%20quiero%20informaci%C3%B3n" target="_blank">+57 302 633 4176</a></li>
+          <li><strong>Instagram:</strong> <a href="https://www.instagram.com/nicol_.xf" target="_blank">@nicol_.xf</a></li>
+          <li><strong>Dirección:</strong> Calle ejemplo 123, Ciudad (reemplaza por tu dirección)</li>
         </ul>
       </div>
 
-      <form id="contactForm" class="contact-form" autocomplete="on">
-        <label>
-          Nombre
-          <input type="text" id="name" name="name" required />
+      <form class="contact-form" onsubmit="event.preventDefault(); sendRequest();">
+        <label>Nombre<input type="text" id="name" required placeholder="Tu nombre"></label>
+        <label>Servicio
+          <select id="service">
+            <option>Tratamiento facial</option>
+            <option>Maquillaje</option>
+            <option>Manicure</option>
+          </select>
         </label>
-        <label>
-          Empresa (opcional)
-          <input type="text" id="company" name="company" />
-        </label>
-        <label>
-          Correo electrónico
-          <input type="email" id="email" name="email" required />
-        </label>
-        <label>
-          Mensaje
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </label>
-
-        <div class="form-actions">
-          <button type="submit" class="btn primary">Enviar mensaje</button>
-          <button type="button" id="btnPhone" class="btn outline">Llamar</button>
-        </div>
-
-        <p id="formNote" class="muted small">El formulario abrirá tu cliente de correo para enviar el mensaje (mailto).</p>
+        <label>Fecha<input type="date" id="date"></label>
+        <label>Mensaje<textarea id="message" placeholder="¿Algún detalle?"></textarea></label>
+        <button type="submit" class="btn primary">Enviar solicitud</button>
       </form>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>© <span id="year"></span> Glow &amp; Go</div>
-      <div class="footer-links">
-        <a href="#top">Arriba ↑</a>
-        <a href="#contact">Contacto</a>
-      </div>
+  <footer class="site-footer">
+    <div>© <span id="year"></span> Glow &amp; Go — Centro de belleza</div>
+    <div class="socials">
+      <a href="https://www.instagram.com/nicol_.xf" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </footer>
 
