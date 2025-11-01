@@ -1,146 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Glow &amp; Go — Centro de belleza</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow & Go | Centro de Belleza</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-pink">
-  <header class="site-header">
-    <div class="brand">
-      <!-- SVG logo: colors ajustados por CSS -->
-      <svg id="logo" viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" aria-label="Glow & Go logo">
-        <!-- brocha -->
-        <g id="brush" transform="translate(8,8)">
-          <path class="brush-handle" d="M72 18 C69 22, 62 78, 65 118 C67 138 80 140 96 136 C112 132 126 128 132 116 C139 100 134 28 132 18 C129 8 118 6 104 10 Z"/>
-          <rect class="ferrule" x="48" y="18" width="60" height="22" rx="6"/>
-          <path class="bristles" d="M38 40 C66 6, 126 6, 154 40 C150 50, 126 60, 100 60 C74 60, 50 50, 38 40 Z"/>
+  <header class="hero">
+    <!-- 🔹 Logotipo SVG integrado -->
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="280" height="120" viewBox="0 0 900 400" aria-label="Logo Glow and Go">
+        <defs>
+          <linearGradient id="gBristlePink" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#F6EAEA"/>
+            <stop offset="1" stop-color="#EECFD0"/>
+          </linearGradient>
+          <linearGradient id="gFerrulePink" x1="0" x2="1">
+            <stop offset="0" stop-color="#DFAFB0"/>
+            <stop offset="1" stop-color="#BFA6A0"/>
+          </linearGradient>
+          <linearGradient id="gHandlePink" x1="0" x2="1">
+            <stop offset="0" stop-color="#7C5A5A"/>
+            <stop offset="1" stop-color="#6B3F3F"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(10,10)">
+          <path d="M120 70 C170 10, 320 10, 380 70 C370 96, 320 120, 240 120 C160 120, 110 96, 120 70 Z"
+                fill="url(#gBristlePink)" stroke="#7C5A5A" stroke-width="3"/>
+          <rect x="108" y="62" width="180" height="30" rx="8" fill="url(#gFerrulePink)" stroke="#7C5A5A" stroke-width="2"/>
+          <path d="M290 82 C330 170, 360 240, 340 300 C330 330, 300 340, 270 338 C240 336, 210 320, 200 300 C190 280, 200 200, 220 120"
+                fill="url(#gHandlePink)" stroke="#5a3f3f" stroke-width="2"/>
         </g>
-
-        <!-- texto -->
-        <g transform="translate(190,28)">
-          <text class="brand-name" x="0" y="44">Glow &amp; Go</text>
-          <text class="tagline" x="0" y="80">Centro de belleza</text>
+        <g transform="translate(460,120)">
+          <text x="0" y="0" font-family="Georgia, serif" font-size="64" fill="#6B3F3F" font-weight="700">Glow &amp; Go</text>
+          <text x="0" y="56" font-family="Arial, sans-serif" font-size="22" fill="#7C5A5A" font-style="italic">Centro de belleza</text>
         </g>
       </svg>
-
-      <div class="brand-message">En Glow &amp; Go cuidamos tu belleza porque te mereces brillar todos los días.</div>
     </div>
 
-    <nav class="top-actions">
-      <a class="btn outline" href="https://www.instagram.com/nicol_.xf" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn primary" id="whatsappHeader" href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener">WhatsApp</a>
-      <button id="themeToggle" aria-pressed="false" title="Cambiar tema">Modo ✦</button>
-    </nav>
+    <p class="slogan">
+      En Glow & Go cuidamos tu belleza porque te mereces brillar todos los días.
+    </p>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero section reveal">
-      <div class="hero-left">
-        <h1>Glow &amp; Go — Belleza que inspira confianza</h1>
-        <p class="lead">En Glow &amp; Go cuidamos tu belleza porque te mereces brillar todos los días ✨</p>
-        <div class="hero-ctas">
-          <a class="btn primary" href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go%2C%20quiero%20reservar%20una%20cita" target="_blank">Reservar por WhatsApp</a>
-          <a class="btn outline" href="#servicios">Ver servicios</a>
-        </div>
-
-        <ul class="stats">
-          <li><strong>+10</strong><span>Años</span></li>
-          <li><strong>+2k</strong><span>Clientes</span></li>
-          <li><strong>5</strong><span>Estrellas</span></li>
-        </ul>
-      </div>
-
-      <div class="hero-right">
-        <!-- placeholder: reemplaza con <img src="images/hero.jpg" alt="..."> -->
-        <div class="photo placeholder">Tu foto aquí</div>
-      </div>
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <p>Ofrecemos maquillaje profesional, cuidado facial, peinados y más para resaltar tu belleza natural.</p>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="section reveal">
-      <h2>Servicios destacados</h2>
-      <div class="cards">
-        <article class="card">
-          <div class="ico">💆‍♀️</div>
-          <h3>Tratamientos faciales</h3>
-          <p>Limpieza profunda, hidratación y glow profesional.</p>
-        </article>
-
-        <article class="card">
-          <div class="ico">💄</div>
-          <h3>Maquillaje profesional</h3>
-          <p>Eventos, sesiones fotográficas y looks diarios.</p>
-        </article>
-
-        <article class="card">
-          <div class="ico">💅</div>
-          <h3>Manicure &amp; Pedicure</h3>
-          <p>Acabados de precisión y esmaltado duradero.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- GALERÍA: CARRUSEL -->
-    <section id="galeria" class="section reveal">
+    <section id="galeria">
       <h2>Galería</h2>
-
-      <div class="carousel" id="carousel">
-        <button class="carousel-btn prev" aria-label="Anterior">&lt;</button>
-
-        <div class="carousel-track-wrapper">
-          <ul class="carousel-track">
-            <!-- cada li puede reemplazarse por <li><img src="images/1.jpg" alt="..."></li> -->
-            <li class="carousel-slide"><div class="photo placeholder">Imagen 1</div></li>
-            <li class="carousel-slide"><div class="photo placeholder">Imagen 2</div></li>
-            <li class="carousel-slide"><div class="photo placeholder">Imagen 3</div></li>
-            <li class="carousel-slide"><div class="photo placeholder">Imagen 4</div></li>
-            <li class="carousel-slide"><div class="photo placeholder">Imagen 5</div></li>
-          </ul>
-        </div>
-
-        <button class="carousel-btn next" aria-label="Siguiente">&gt;</button>
+      <div class="carrusel">
+        <div class="slide active"><img src="images/maquillaje1.jpg" alt="Maquillaje Glow & Go"></div>
+        <div class="slide"><img src="images/facial1.jpg" alt="Facial Glow & Go"></div>
+        <div class="slide"><img src="images/peinado1.jpg" alt="Peinado Glow & Go"></div>
       </div>
-
-      <div class="carousel-dots" id="carouselDots" aria-hidden="false"></div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="section contact reveal">
-      <div class="contact-info">
-        <h2>Contacto &amp; reservas</h2>
-        <p>Agenda tu visita o consulta por paquetes. ¡Te esperamos con mucho cariño!</p>
-        <ul>
-          <li><strong>WhatsApp:</strong> <a href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go%2C%20quiero%20informaci%C3%B3n" target="_blank">+57 302 633 4176</a></li>
-          <li><strong>Instagram:</strong> <a href="https://www.instagram.com/nicol_.xf" target="_blank">@nicol_.xf</a></li>
-          <li><strong>Dirección:</strong> Calle ejemplo 123, Ciudad</li>
-        </ul>
-      </div>
-
-      <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); sendRequest();">
-        <label>Nombre<input type="text" id="name" placeholder="Tu nombre" required></label>
-        <label>Servicio
-          <select id="service">
-            <option>Tratamiento facial</option>
-            <option>Maquillaje</option>
-            <option>Manicure</option>
-          </select>
-        </label>
-        <label>Fecha<input type="date" id="date"></label>
-        <label>Mensaje<textarea id="message" rows="3" placeholder="¿Algún detalle?"></textarea></label>
-        <button class="btn primary" type="submit">Enviar por WhatsApp</button>
-      </form>
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <p>✨ Síguenos en Instagram: 
+        <a href="https://www.instagram.com/nicol_.xf" target="_blank">@nicol_.xf</a>
+      </p>
+      <p>📞 WhatsApp: 
+        <a href="https://wa.me/573026334176" target="_blank">+57 302 633 4176</a>
+      </p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div>© <span id="year"></span> Glow &amp; Go — Centro de belleza</div>
-    <div class="socials">
-      <a href="https://www.instagram.com/nicol_.xf" target="_blank">Instagram</a>
-      <a href="https://wa.me/573026334176?text=Hola%20Glow%20%26%20Go" target="_blank">WhatsApp</a>
-    </div>
+  <footer>
+    <p>© 2025 Glow & Go — Todos los derechos reservados.</p>
   </footer>
 
   <script src="script.js"></script>
