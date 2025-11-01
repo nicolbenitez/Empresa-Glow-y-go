@@ -1,12 +1,36 @@
-/glow-and-go/
-│── index.html
-│── style.css
-│── script.js
-│── /images/
-│     ├── maquillaje1.jpg
-│     ├── facial1.jpg
-│     ├── peinado1.jpg
-│
-│── /logo/
-│     ├── logo-glowandgo-pink.svg
-│     ├── logo-glowandgo-black.svg
+// ====== ANIMACIONES AL HACER SCROLL ======
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+  const trigger = window.innerHeight * 0.8;
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < trigger) section.classList.add("visible");
+  });
+});
+
+// ====== CARRUSEL AUTOMÁTICO ======
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 4000);
+
+// ====== CAMBIO DE TEMA ======
+const toggleBtn = document.getElementById("toggle-theme");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("theme-black");
+  document.body.classList.toggle("theme-pink");
+  toggleBtn.textContent = document.body.classList.contains("theme-black")
+    ? "💗 Cambiar tema"
+    : "🖤 Cambiar tema";
+});
