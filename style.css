@@ -1,0 +1,202 @@
+/* RESET y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  background: rgba(26, 31, 54, 0.9);
+  color: #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+header .logo {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+header nav a {
+  color: #E0E0E0;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: #FFD700;
+}
+
+/* SECCIONES */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* PARALLAX INICIO */
+.parallax {
+  background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+  position: relative;
+}
+
+.parallax-contact {
+  background: url('https://via.placeholder.com/1600x900/333333') no-repeat center center/cover;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(26,31,54,0.75);
+  color: #E0E0E0;
+  padding: 5rem 2rem;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+/* BOTONES */
+.btn {
+  padding: 1rem 2rem;
+  background: #FFD700;
+  color: #1A1F36;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e6c200;
+}
+
+/* CARDS SERVICIOS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #E0E0E0;
+  color: #1A1F36;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 250px;
+  transition: all 0.5s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* GALERÍA */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 250px;
+  border-radius: 10px;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* FORMULARIO CONTACTO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+input, textarea {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+button {
+  padding: 1rem;
+  background: #FFD700;
+  color: #1A1F36;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e6c200;
+}
+
+/* BOTÓN FLOTANTE WHATSAPP */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #25D366;
+  color: #fff;
+  padding: 1rem 1.3rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe57;
+}
+
+/* FOOTER */
+footer {
+  background: #1A1F36;
+  color: #E0E0E0;
+  text-align: center;
+  padding: 1rem;
+}
