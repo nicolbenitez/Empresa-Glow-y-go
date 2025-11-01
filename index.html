@@ -1,22 +1,154 @@
-<!-- logo-animado.html -->
-<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250">
-  <!-- Fondo negro -->
-  <rect width="250" height="250" fill="#000000" rx="20" ry="20"/>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glow & Go — Servicios Empresariales</title>
+  <link rel="icon" href="logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav-animated" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <!-- Inline SVG logo reference -->
+        <img src="logo.svg" alt="Glow & Go logo" class="logo-img" />
+        <span class="brand-text">Glow &amp; Go</span>
+      </a>
 
-  <!-- Círculo elegante -->
-  <circle cx="125" cy="125" r="100" fill="#1A1F36" stroke="#FFD700" stroke-width="5"/>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Inicio</a>
+        <a href="#services">Servicios</a>
+        <a href="#gallery">Galería</a>
+        <a href="#contact">Contacto</a>
+      </nav>
 
-  <!-- Iniciales corporativas con animación -->
-  <text x="50%" y="55%" font-family="Montserrat, sans-serif" font-size="80" fill="#FFD700" 
-        text-anchor="middle" alignment-baseline="middle" opacity="0">
-    EC
-    <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze" />
-    <animateTransform attributeName="transform" type="scale" from="0.5" to="1" dur="2s" fill="freeze" additive="sum" />
-  </text>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
 
-  <!-- Línea decorativa inferior -->
-  <line x1="60" y1="180" x2="190" y2="180" stroke="#FFD700" stroke-width="3" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="2s" begin="1s" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" from="0,20" to="0,0" dur="2s" begin="1s" fill="freeze" />
-  </line>
-</svg>
+  <!-- HERO -->
+  <section id="home" class="hero section">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Impulsamos la presencia de tu empresa</h1>
+        <p>Soluciones profesionales en marketing, branding y promoción para empresas que desean destacar con elegancia.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#services">Ver servicios</a>
+          <a class="btn outline" href="#contact">Contáctanos</a>
+        </div>
+        <div class="contact-line">
+          <!-- Replace phone and instagram as needed -->
+          <a href="tel:+573026334176" class="contact-pill">📱 +57 302 633 4176</a>
+          <a href="https://instagram.com/tu_instagram" target="_blank" rel="noopener" class="contact-pill">📸 @tu_instagram</a>
+        </div>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <div class="device-mockup">
+          <div class="screen-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Servicios</h2>
+      <p class="muted">Paquetes diseñados para hacer crecer tu marca con confianza y distinción.</p>
+
+      <div class="cards">
+        <article class="card card-animated">
+          <h3>Branding Corporativo</h3>
+          <p>Identidad visual, manual de marca, y diseño de materiales corporativos.</p>
+        </article>
+        <article class="card card-animated">
+          <h3>Marketing Digital</h3>
+          <p>Estrategia en redes, publicidad pagada y campañas de captación.</p>
+        </article>
+        <article class="card card-animated">
+          <h3>Producción Multimedia</h3>
+          <p>Fotos, videos y material audiovisual profesional para presentar tus productos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <h2 class="section-title">Galería</h2>
+      <p class="muted">Proyectos y muestras de trabajo.</p>
+
+      <div class="gallery-grid">
+        <!-- Replace src with real images later -->
+        <img data-caption="Proyecto A — Branding" src="https://picsum.photos/seed/p1/800/600" alt="Proyecto A" class="gallery-item" />
+        <img data-caption="Campaña B — Redes" src="https://picsum.photos/seed/p2/800/600" alt="Campaña B" class="gallery-item" />
+        <img data-caption="Producción C — Foto" src="https://picsum.photos/seed/p3/800/600" alt="Producción C" class="gallery-item" />
+        <img data-caption="Evento D — Publicidad" src="https://picsum.photos/seed/p4/800/600" alt="Evento D" class="gallery-item" />
+      </div>
+    </div>
+
+    <!-- Modal for enlarged gallery image -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lbClose" aria-label="Cerrar">✕</button>
+      <img id="lbImage" alt="" />
+      <p id="lbCaption"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="section-title">Contacto</h2>
+        <p class="muted">Hablemos de tu proyecto. Rellena el formulario o escríbenos directamente.</p>
+
+        <ul class="contact-list">
+          <li>📱 <a href="tel:+573026334176">+57 302 633 4176</a></li>
+          <li>📸 <a href="https://instagram.com/tu_instagram" target="_blank" rel="noopener">@tu_instagram</a></li>
+          <li>✉️ <a href="mailto:info@glowandgo.com">info@glowandgo.com</a></li>
+        </ul>
+      </div>
+
+      <form id="contactForm" class="contact-form" autocomplete="on">
+        <label>
+          Nombre
+          <input type="text" id="name" name="name" required />
+        </label>
+        <label>
+          Empresa (opcional)
+          <input type="text" id="company" name="company" />
+        </label>
+        <label>
+          Correo electrónico
+          <input type="email" id="email" name="email" required />
+        </label>
+        <label>
+          Mensaje
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar mensaje</button>
+          <button type="button" id="btnPhone" class="btn outline">Llamar</button>
+        </div>
+
+        <p id="formNote" class="muted small">El formulario abrirá tu cliente de correo para enviar el mensaje (mailto).</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> Glow &amp; Go</div>
+      <div class="footer-links">
+        <a href="#top">Arriba ↑</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
