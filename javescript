@@ -1,92 +1,50 @@
-// script.js - animaciones, menú, galería, formulario
-document.addEventListener('DOMContentLoaded', () => {
-  // set year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+// Theme toggle (pink <-> black)
+const themeBtn = document.getElementById('themeToggle');
+const body = document.body;
+const yearSpan = document.getElementById('year');
 
-  // mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if(navToggle){
-    navToggle.addEventListener('click', () => {
-      if(navLinks.style.display === 'flex') navLinks.style.display = '';
-      else navLinks.style.display = 'flex';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.gap = '8px';
-    });
+yearSpan.textContent = new Date().getFullYear();
+
+function setTheme(theme){
+  if(theme === 'black'){
+    body.classList.add('theme-black');
+    body.classList.remove('theme-pink');
+    themeBtn.textContent = 'Modo ✦';
+    themeBtn.setAttribute('aria-pressed', 'true');
+  } else {
+    body.classList.remove('theme-black');
+    body.classList.add('theme-pink');
+    themeBtn.textContent = 'Modo ⏤';
+    themeBtn.setAttribute('aria-pressed', 'false');
   }
+}
 
-  // smooth scroll for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', (e)=>{
-      const target = document.querySelector(a.getAttribute('href'));
-      if(target){
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  });
+// detect stored preference
+const saved = localStorage.getItem('glow_theme');
+if(saved === 'black') setTheme('black');
+else setTheme('pink');
 
-  // reveal animations (IntersectionObserver)
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('inview');
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.14});
-
-  document.querySelectorAll('.card-animated, .hero-image').forEach(el => io.observe(el));
-
-  // Gallery lightbox
-  const items = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lbImage = document.getElementById('lbImage');
-  const lbCaption = document.getElementById('lbCaption');
-  const lbClose = document.getElementById('lbClose');
-
-  items.forEach(img => {
-    img.addEventListener('click', () => {
-      lbImage.src = img.src;
-      lbImage.alt = img.alt || '';
-      lbCaption.textContent = img.dataset.caption || '';
-      lightbox.style.display = 'flex';
-      lightbox.setAttribute('aria-hidden','false');
-    });
-  });
-
-  lbClose.addEventListener('click', closeLb);
-  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLb(); });
-  function closeLb(){
-    lightbox.style.display = 'none';
-    lightbox.setAttribute('aria-hidden','true');
-    lbImage.src = '';
-    lbCaption.textContent = '';
-  }
-
-  // Contact form: open mailto with prefilled content
-  const form = document.getElementById('contactForm');
-  const btnPhone = document.getElementById('btnPhone');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const name = encodeURIComponent(document.getElementById('name').value.trim());
-    const company = encodeURIComponent(document.getElementById('company').value.trim());
-    const email = encodeURIComponent(document.getElementById('email').value.trim());
-    const message = encodeURIComponent(document.getElementById('message').value.trim());
-
-    const subject = encodeURIComponent(`Contacto web - ${name || 'Interesado'}`);
-    const body = encodeURIComponent(
-      `Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\n\nMensaje:\n${message}`
-    );
-
-    // Replace this recipient with your real email
-    const mailto = `mailto:info@glowandgo.com?subject=${subject}&body=${body}`;
-    window.location.href = mailto;
-  });
-
-  // phone quick action
-  btnPhone.addEventListener('click', ()=> {
-    window.location.href = 'tel:+573026334176';
-  });
-
+themeBtn.addEventListener('click', () => {
+  const isBlack = body.classList.contains('theme-black');
+  const next = isBlack ? 'pink' : 'black';
+  setTheme(next);
+  localStorage.setItem('glow_theme', next);
 });
+
+// Basic 'send' function for contact form: opens WhatsApp with form data
+function sendRequest(){
+  const name = document.getElementById('name').value || 'Cliente';
+  const service = document.getElementById('service').value;
+  const date = document.getElementById('date').value || 'Sin fecha';
+  const msg = document.getElementById('message').value || '';
+  const text = `Hola Glow & Go, soy ${encodeURIComponent(name)}. Interesada en: ${encodeURIComponent(service)}. Fecha: ${encodeURIComponent(date)}. ${encodeURIComponent(msg)}`;
+  const url = `https://wa.me/573026334176?text=${text}`;
+  window.open(url, '_blank');
+}
+
+// (Optional) Replace placeholders with real images via JS if you want to programmatically load images
+// Example:
+// document.querySelectorAll('.gallery-item .photo').forEach((el, i) => {
+//   el.style.backgroundImage = `url('/ruta/a/tu/imagen${i+1}.jpg')`;
+//   el.textContent = '';
+// });
