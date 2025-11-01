@@ -1,17 +1,18 @@
-// Pequeña animación al hacer scroll
+// Animación al hacer scroll
 const sections = document.querySelectorAll('.section');
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if(entry.isIntersecting){
             entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+        } else { entry.target.classList.remove('show'); }
     });
-}, { threshold: 0.2 });
+}, { threshold:0.2 });
+sections.forEach(section => { section.classList.add('hidden'); observer.observe(section); });
 
-sections.forEach(section => {
-    section.classList.add('hidden');
-    observer.observe(section);
-});
+// Carrusel automático
+let index = 0;
+const slides = document.querySelectorAll('.galeria-slide');
+setInterval(() => {
+    slides.forEach((slide,i) => { slide.style.transform = translateX(-${index*100}%); });
+    index = (index + 1) % slides.length;
+}, 4000);
