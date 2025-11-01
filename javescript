@@ -1,37 +1,92 @@
-// Animaciones ScrollReveal
-ScrollReveal().reveal('.section', {
-  distance: '50px',
-  duration: 1200,
-  easing: 'ease-in-out',
-  origin: 'bottom',
-  interval: 200
-});
+// script.js - animaciones, menú, galería, formulario
+document.addEventListener('DOMContentLoaded', () => {
+  // set year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-ScrollReveal().reveal('.card', {
-  distance: '30px',
-  duration: 1000,
-  origin: 'bottom',
-  interval: 200
-});
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle){
+    navToggle.addEventListener('click', () => {
+      if(navLinks.style.display === 'flex') navLinks.style.display = '';
+      else navLinks.style.display = 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.gap = '8px';
+    });
+  }
 
-ScrollReveal().reveal('.gallery img', {
-  distance: '30px',
-  duration: 1000,
-  origin: 'bottom',
-  interval: 200
-});
-
-ScrollReveal().reveal('form', {
-  distance: '30px',
-  duration: 1000,
-  origin: 'bottom'
-});
-
-// Parallax sencillo
-window.addEventListener('scroll', function() {
-  const parallax = document.querySelectorAll('.parallax, .parallax-contact');
-  parallax.forEach(section => {
-    let offset = window.pageYOffset;
-    section.style.backgroundPositionY = offset * 0.5 + 'px';
+  // smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
   });
+
+  // reveal animations (IntersectionObserver)
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('inview');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.14});
+
+  document.querySelectorAll('.card-animated, .hero-image').forEach(el => io.observe(el));
+
+  // Gallery lightbox
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lbImage');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbClose = document.getElementById('lbClose');
+
+  items.forEach(img => {
+    img.addEventListener('click', () => {
+      lbImage.src = img.src;
+      lbImage.alt = img.alt || '';
+      lbCaption.textContent = img.dataset.caption || '';
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden','false');
+    });
+  });
+
+  lbClose.addEventListener('click', closeLb);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLb(); });
+  function closeLb(){
+    lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden','true');
+    lbImage.src = '';
+    lbCaption.textContent = '';
+  }
+
+  // Contact form: open mailto with prefilled content
+  const form = document.getElementById('contactForm');
+  const btnPhone = document.getElementById('btnPhone');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const company = encodeURIComponent(document.getElementById('company').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+    const subject = encodeURIComponent(`Contacto web - ${name || 'Interesado'}`);
+    const body = encodeURIComponent(
+      `Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\n\nMensaje:\n${message}`
+    );
+
+    // Replace this recipient with your real email
+    const mailto = `mailto:info@glowandgo.com?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
+  });
+
+  // phone quick action
+  btnPhone.addEventListener('click', ()=> {
+    window.location.href = 'tel:+573026334176';
+  });
+
 });
