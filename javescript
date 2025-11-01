@@ -1,0 +1,37 @@
+// Animaciones ScrollReveal
+ScrollReveal().reveal('.section', {
+  distance: '50px',
+  duration: 1200,
+  easing: 'ease-in-out',
+  origin: 'bottom',
+  interval: 200
+});
+
+ScrollReveal().reveal('.card', {
+  distance: '30px',
+  duration: 1000,
+  origin: 'bottom',
+  interval: 200
+});
+
+ScrollReveal().reveal('.gallery img', {
+  distance: '30px',
+  duration: 1000,
+  origin: 'bottom',
+  interval: 200
+});
+
+ScrollReveal().reveal('form', {
+  distance: '30px',
+  duration: 1000,
+  origin: 'bottom'
+});
+
+// Parallax sencillo
+window.addEventListener('scroll', function() {
+  const parallax = document.querySelectorAll('.parallax, .parallax-contact');
+  parallax.forEach(section => {
+    let offset = window.pageYOffset;
+    section.style.backgroundPositionY = offset * 0.5 + 'px';
+  });
+});
