@@ -6,24 +6,31 @@
   <title>Glow & Go - Servicios Empresariales</title>
 
   <style>
-    /* Fondo negro en toda la página */
+    /* -------- ESTILO GENERAL -------- */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000; /* Fondo negro */
-      color: #fff; /* Texto blanco para contraste */
+      background-color: #000; /* fondo base negro */
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(204, 153, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 200, 255, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden;
     }
 
+    /* -------- HEADER -------- */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.85);
       padding: 15px 40px;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(204, 153, 255, 0.2);
     }
 
     header .logo img {
@@ -35,6 +42,7 @@
       display: flex;
       gap: 25px;
       margin: 0;
+      padding: 0;
     }
 
     nav ul li a {
@@ -48,58 +56,78 @@
       color: #ffffff;
     }
 
+    /* WhatsApp botón flotante */
     .whatsapp-btn img {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
+      z-index: 150;
+      filter: drop-shadow(0 0 5px #b86bff);
+      transition: transform 0.3s;
     }
 
-    /* HERO */
+    .whatsapp-btn img:hover {
+      transform: scale(1.1);
+    }
+
+    /* -------- HERO -------- */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+                  url('https://i.ibb.co/j6nXmJK/black-glitter-bg.jpg'); /* textura de brillo */
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 0 20px;
-    }
-
-    .hero-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #e6b3ff;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
       color: #fff;
     }
 
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: #d8b0ff;
+      text-shadow: 0 0 15px rgba(200, 150, 255, 0.8);
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
+
     .btn {
-      background-color: #c79aff;
+      background: linear-gradient(90deg, #c79aff, #ffb8f0);
       color: #000;
-      padding: 10px 25px;
+      padding: 12px 30px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 200, 255, 0.5);
       transition: 0.3s;
     }
 
     .btn:hover {
-      background-color: #fff;
+      background: #fff;
       color: #000;
+      transform: scale(1.05);
     }
 
-    /* SECCIONES */
+    /* -------- SECCIONES -------- */
     .section {
       padding: 100px 40px;
       text-align: center;
     }
 
+    .section h2 {
+      color: #e4c1ff;
+      text-shadow: 0 0 10px rgba(204, 153, 255, 0.4);
+    }
+
+    /* -------- SERVICIOS -------- */
     .servicios-container {
       display: flex;
       flex-wrap: wrap;
@@ -109,34 +137,41 @@
     }
 
     .servicio {
-      background-color: #111;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(204,153,255,0.2);
       border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      box-shadow: 0 0 10px rgba(204,153,255,0.1);
       padding: 30px;
       width: 280px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .servicio:hover {
       transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(204,153,255,0.3);
     }
 
+    /* -------- GALERÍA -------- */
     .galeria-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
+      margin-top: 40px;
     }
 
     .galeria-container img {
       width: 100%;
       border-radius: 15px;
-      transition: transform 0.3s;
+      box-shadow: 0 0 10px rgba(204,153,255,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .galeria-container img:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(204,153,255,0.4);
     }
 
+    /* -------- CONTACTO -------- */
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -150,12 +185,12 @@
       padding: 12px;
       border: 1px solid #444;
       border-radius: 8px;
-      background-color: #222;
+      background-color: #111;
       color: #fff;
     }
 
     .contact-form button {
-      background-color: #c79aff;
+      background: linear-gradient(90deg, #c79aff, #ffb8f0);
       border: none;
       padding: 12px;
       border-radius: 30px;
@@ -165,15 +200,18 @@
     }
 
     .contact-form button:hover {
-      background-color: #fff;
+      background: #fff;
       color: #000;
     }
 
+    /* -------- FOOTER -------- */
     footer {
       background-color: #111;
       color: #fff;
       text-align: center;
       padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(204,153,255,0.2);
     }
   </style>
 </head>
@@ -183,7 +221,7 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="logo" alt="Glow & Go Logo">
+      <img src="images/logo.png" alt="Glow & Go Logo">
     </div>
     <nav>
       <ul>
@@ -230,4 +268,27 @@
   <section id="galeria" class="section galeria">
     <h2>Galería</h2>
     <div class="galeria-container">
-      <div class="galeria1"><img src="images/1.jpg" alt="Proyecto 1"></div>
+      <div><img src="images/1.jpg" alt="Proyecto 1"></div>
+      <div><img src="images/2.jpg" alt="Proyecto 2"></div>
+      <div><img src="images/3.jpg" alt="Proyecto 3"></div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section contacto">
+    <h2>Contacto</h2>
+    <form action="#" class="contact-form">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo" required>
+      <textarea placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Glow & Go. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
